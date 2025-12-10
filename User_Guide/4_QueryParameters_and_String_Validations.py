@@ -25,3 +25,11 @@ async def read_items(q: Annotated[str | None , Query(max_length = 50)] = None):
     if q:
         result.update({"item_id" : "Baz"})
     return result
+----------------------------------------------------------------------------------------------
+# Default values
+@app.get("/items/")
+async def read_items(q: Annotated[str, Query(min_length=3)] = "fixedquery"):
+    results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
+    if q:
+        results.update({"q": q})
+    return results
