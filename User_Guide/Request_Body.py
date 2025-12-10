@@ -29,6 +29,16 @@ async def update_items(item: Item):
     
 ============================================================
 # Request body + path parameters
-@app.post("/users")
+@app.put("/users/{item_id}")
 async def update_item(item_id: int, item: Item):
     return {"item_id" : item_id, **item.dict()}
+
+============================================================
+# Request body + path + query parameters
+@app.put("/user1")
+async def update_item(item_id: int, item: Item, query: str | None = None):
+    result = {"item_id" : item_id, **item.dict()}
+    if query:
+        result.update({"Query" : query})
+    return result
+============================================================
