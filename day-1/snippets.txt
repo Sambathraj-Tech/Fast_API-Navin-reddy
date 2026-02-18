@@ -1,0 +1,38 @@
+
+## STEP 5: Understand HTTP Before Coding
+
+Before touching FastAPI, read this carefully. This is the "why" behind everything.
+```
+THE INTERNET IS JUST REQUESTS AND RESPONSES.
+
+You (Browser/App)          Server (FastAPI)
+      |                          |
+      |-------- REQUEST -------->|
+      |   "GET /users"           |
+      |   "I want all users"     |
+      |                          |
+      |<------- RESPONSE --------|
+      |   200 OK                 |
+      |   [{"name": "Rahul"}]    |
+
+**✅ What does GET mean in HTTP?**
+
+    GET = request data from server
+    It is used when you want to:
+        👉 read information
+        👉 fetch data
+        👉 not change anything
+
+**✅ What does @app.get("/") do?**
+
+    - It creates a route (endpoint).
+    - Decorator = route mapping.
+
+**✅ Difference: path params vs query params**
+
+    Path parameter:
+        Part of the URL path.
+        @app.get("/square/{number}")
+
+    Query parameter:
+        def multiply(x: int, y: int)
